@@ -1,14 +1,38 @@
-using AOC2023
 using Test
+using ArgParse
+using Logging
 
-# @testset "AOC2023.jl" begin
-#     # Write your tests here.
-#     @test AOC2023.greet() == "Yo!"
-#     @test AOC2023.greet() != "Hello world!"
-# end
+function parse_cli()
+    s = ArgParseSettings()
+    @add_arg_table s begin
+        "day"
+            help = "selected day to run tests for"
+            arg_type = Int
+    end
 
-# include("./test_day01.jl")
-# include("./test_day02.jl")
-# include("./test_day03.jl")
-include("./test_day04.jl")
+    return parse_args(ARGS, s)
+end
 
+function main()
+    args = parse_cli()
+    if args["day"] === nothing
+        @info "Running all tests"
+        for fp in readdir("./test")
+            if startswith(fp, "test_")
+                @info "Running $(fp)"
+                include("./$(fp)")
+            end
+        end
+    else
+        day_idx = lpad(string(args["day"]), 2, "0")
+        day_fp = "test_day$(day_idx).jl"
+        @info "Running $(day_fp)"
+        include("./$(day_fp)")
+    end
+
+end
+
+
+if !isdefined(Base, :active_repl)
+    main()
+end

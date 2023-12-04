@@ -7,9 +7,16 @@ function main()
     part2.main()
 end
 
-# %% COMMON
 
-module common
+# %%  PART 1
+
+module part1
+
+function main()
+    lines = read_lines("./src/01/input.txt")
+    values = [get_values_from_line(line) for line in lines]
+    println("Solution for part 1: ", sum(values))
+end
 
 function read_lines(path)
     return open(path) do f
@@ -18,20 +25,6 @@ function read_lines(path)
         String.(lines)
     end
     return
-end
-
-end
-
-
-# %%  PART 1
-
-module part1
-using ..common
-
-function main()
-    lines = common.read_lines("./src/01/input.txt")
-    values = [get_values_from_line(line) for line in lines]
-    println("Solution for part 1: ", sum(values))
 end
 
 function get_values_from_line(line::String)::Int
@@ -46,10 +39,10 @@ end
 # %% PART 2
 #
 module part2
-using ..common
+using ..part1: read_lines
 
 function main()
-    lines = common.read_lines("./src/01/input.txt")
+    lines = read_lines("./src/01/input.txt")
     values = [get_values_from_line(line) for line in lines]
     println("Solution for part 2: ", sum(values))
 end
