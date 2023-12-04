@@ -14,15 +14,16 @@ function parse_cli()
     return parse_args(ARGS, s)
 end
 
+entrypoints = Dict(
+    1=>AOC2023.day01.main,
+    2=>AOC2023.day02.main,
+    3=>AOC2023.day03.main,
+    4=>AOC2023.day04.main,
+)
+
 function main()
     args = parse_cli()
-    if args["day"] == 1
-        AOC2023.day01.main()
-    elseif args["day"] == 2
-        AOC2023.day02.main()
-    elseif args["day"] == 3
-        AOC2023.day03.main()
-    end
+    entrypoints[args["day"]]()
 end
 
 if !isdefined(Base, :active_repl)
