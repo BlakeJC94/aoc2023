@@ -1,0 +1,17 @@
+name = "AOC2023"
+uuid = "a136d34e-6a8f-49bd-be56-0354b5213ac7"
+authors = ["blake"]
+version = "1.0.0-DEV"
+
+[deps]
+ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
