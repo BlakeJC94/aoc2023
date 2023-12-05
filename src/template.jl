@@ -1,4 +1,4 @@
-# Don't forget to add to AOC20203.jl
+# Don't forget to add to src/AOC2023.jl
 export dayXX
 
 module dayXX
@@ -16,6 +16,7 @@ module part1
 
 function main()
     # ...
+    result = 0
     println("Solution for part 1: ", result)
 end
 
@@ -28,6 +29,7 @@ module part2
 
 function main()
     # ...
+    result = 0
     println("Solution for part 2: ", result)
 end
 

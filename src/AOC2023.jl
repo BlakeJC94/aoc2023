@@ -1,23 +1,16 @@
 module AOC2023
 
-export day01
-include("01/main.jl")
-
-export day02
-include("02/main.jl")
-
-export day03
-include("03/main.jl")
-
-export day04
-include("04/main.jl")
 
 export entrypoints
-entrypoints = Dict(
-    1=>day01.main,
-    2=>day02.main,
-    3=>day03.main,
-    4=>day04.main,
-)
+
+entrypoints = Dict()
+for fp in readdir("./src")
+    if match(r"^\d+$", fp) === nothing
+        continue
+    end
+    include("./$(fp)/main.jl")
+    expr = Meta.parse("day$(fp).main")
+    entrypoints[parse(Int, fp)] = eval(expr)
+end
 
 end
