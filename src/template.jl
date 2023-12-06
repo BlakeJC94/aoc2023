@@ -1,4 +1,3 @@
-# Don't forget to add to src/AOC2023.jl
 export dayXX
 
 module dayXX
