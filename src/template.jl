@@ -7,8 +7,6 @@ function main()
     # part2.main()
 end
 
-
-
 # %%  PART 1
 
 module part1
