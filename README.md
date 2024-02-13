@@ -2,6 +2,11 @@
 
 My solutions to Advent of Code 2023, written entirely in Julia
 
+```
+Note: unfortunately I fell incredibly ill following a flight back home on day 10 :(
+I'd like to come back to this with some new Julia integrations I've seen for Vim
+```
+
 ## Usage
 
 Run code for solutions to problems for the selected day
